@@ -10,7 +10,8 @@ function App() {
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
 
-  const joinRoom = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
       setShowChat(true);
@@ -22,21 +23,23 @@ function App() {
       {!showChat ? (
         <div className="joinChatContainer">
           <h3>Bate papo</h3>
-          <input
-            type="text"
-            placeholder="Gabriel..."
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="ID da sala..."
-            onChange={(event) => {
-              setRoom(event.target.value);
-            }}
-          />
-          <button onClick={joinRoom}>Entrar na Sala</button>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Gabriel..."
+              onChange={(event) => {
+                setUsername(event.target.value);
+              }}
+            />
+            <input
+              type="text"
+              placeholder="ID da sala..."
+              onChange={(event) => {
+                setRoom(event.target.value);
+              }}
+            />
+            <button type="submit">Entrar na Sala</button>
+          </form>
         </div>
       ) : (
         <Chat socket={socket} username={username} room={room} />
