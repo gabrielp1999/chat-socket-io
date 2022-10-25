@@ -40,7 +40,7 @@ function Chat({ socket, username, room }) {
             return (
               <div
                 className="message"
-                id={username === messageContent.author ? "you" : "other"}
+                id={username === messageContent.author ? "other" : "you"}
               >
                 <div>
                   <div className="message-content">
@@ -48,7 +48,11 @@ function Chat({ socket, username, room }) {
                   </div>
                   <div className="message-meta">
                     <p id="time">{messageContent.time}</p>
-                    <p id="author">{messageContent.author}</p>
+                    <p id="author">
+                      {username === messageContent.author
+                        ? "Eu"
+                        : messageContent.author}
+                    </p>
                   </div>
                 </div>
               </div>
