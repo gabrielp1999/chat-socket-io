@@ -1,7 +1,8 @@
 .App {
   max-width: 100vw;
   height: 100vh;
-  background: #fff;
+  background-image: url('https://i.pinimg.com/564x/68/79/7d/68797d3bd7439eb09cbe7680ccb57fe0.jpg');
+  background-size: cover;
   color: #212121;
   font-family: "Open Sans", sans-serif;
   display: grid;
@@ -22,6 +23,7 @@ body {
 .joinChatContainer h3 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: #eee;
 }
 .joinChatContainer input {
   width: 210px;
@@ -41,9 +43,14 @@ body {
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
-  background: #43a047;
+  background: #044878;
   color: #fff;
   cursor: pointer;
+}
+
+.joinChatContainer form {
+  display: flex;
+  flex-direction: column;
 }
 
 .joinChatContainer button:hover {
@@ -74,7 +81,6 @@ body {
 
 .chat-window .chat-body {
   height: calc(100vh - (45px + 41px));
-  background: #fff;
   position: relative;
 }
 .chat-window .chat-body .message-container {
@@ -122,6 +128,8 @@ body {
 #you .message-meta {
   justify-content: flex-start;
   margin-left: 5px;
+  color: #eee;
+  font-weight:500 ;
 }
 
 #other {
@@ -131,11 +139,14 @@ body {
 #other .message-content {
   justify-content: flex-end;
   background-color: cornflowerblue;
+  
 }
 
 #other .message-meta {
   justify-content: flex-end;
   margin-right: 5px;
+  color: #eee;
+  font-weight:500 ;
 }
 
 .message-meta #author {
@@ -187,3 +198,8 @@ body {
   opacity: 0 !important;
 }
 
+@media screen and (min-width: 764px) {
+  .App {
+    background-image: url('https://i.redd.it/wl0fdl62lik41.jpg');
+  }
+}
